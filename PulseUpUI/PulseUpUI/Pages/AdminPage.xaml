@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PulseUpUI.Pages.AdminPage" BackgroundColor="#297045" xmlns:vm="clr-namespace:PulseUpUI.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:ListViewModel></vm:ListViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Administrér brugere"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" TextColor="#f0faf4" FontSize="30"/>
+            </StackLayout>
+            
+            <ListView x:Name="ListView1" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HeightRequest="0" RowHeight="-1">
+                <!--<ListView.Header>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label TextColor="#f0faf4" Text="Brugernavn"
+                           />
+                        <Label TextColor="#f0faf4" Text="Password"
+                           />
+                    </StackLayout>
+                </ListView.Header>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<StackLayout Padding="0">
+                                <Label Text="{Binding Username}" TextColor="#f0faf4"></Label>
+                                <Label Text="{Binding Password}" TextColor="#f0faf4"></Label>
+                                <Button Text="test" HorizontalOptions="EndAndExpand"></Button>
+                            </StackLayout>-->
+                            <Grid ColumnSpacing="10" RowSpacing="10" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                
+                               
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Column="0" Grid.Row="0"
+                           Text="{Binding Username}" TextColor="#f0faf4" 
+                           />
+                                <Label Grid.Column="1" Grid.Row="0" 
+                           Text="{Binding Password}" TextColor="#f0faf4" 
+                           />
+                                
+                               <!-- <Button Text="test" Grid.Column="2" Grid.Row="0" ></Button>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!--<Button Text="Redigér bruger" Command="{Binding EditUserCommand}"></Button>-->
+            <StackLayout VerticalOptions="Center">
+                <Entry Placeholder="Nyt brugernavn" Text="{Binding NewUsername}" TextColor="#f0faf4" PlaceholderColor="#f0faf4"></Entry>
+                <Entry Placeholder="Nyt password" Text="{Binding NewPassword}" TextColor="#f0faf4" IsPassword="True" PlaceholderColor="#f0faf4"></Entry>
+                <Button Text="Opdatér bruger" Command="{Binding UpdateUserCommand}" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#2E933C" Margin="0,5,0,0"></Button>
+                <Button Text="Fjern bruger" Command="{Binding RemoveUserCommand}" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#95190C" Margin="0,5,0,0"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

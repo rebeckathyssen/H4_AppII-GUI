@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Guide fra https://www.c-sharpcorner.com/article/xamarin-forms-create-a-login-page-mvvm/-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PulseUpUI.Pages.LoginPage" BackgroundColor="#297045">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+           
+            <Frame BackgroundColor="Transparent" HasShadow="False">
+                
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label Text="PulseUp!" FontSize="70" TextColor="#f0faf4" FontFamily="CoolFont" HorizontalOptions="Center" HeightRequest="-1" Padding="0,-25,0,15"></Label>
+                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                           PlaceholderColor="#f0faf4" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="#f0faf4"/>
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Adgangskode"   
+                           PlaceholderColor="#f0faf4" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="#f0faf4"/>
+                </StackLayout>
+            </Frame>
+            <!--<Button Command="{Binding SubmitCommand}" Text="Login" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#2E933C" Clicked="ButtonLogin_Clicked"/>-->
+            <Button Text="Login" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#2E933C" Clicked="ButtonLogin_Clicked" Margin="0"/>
+            <Button Text="Ikke registreret? Klik her!" BackgroundColor="#297045" FontSize="15" TextColor="#f0faf4" Clicked="ButtonRegister_Clicked" HeightRequest="-1" Margin="0,-30,0,0" TextTransform="None"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

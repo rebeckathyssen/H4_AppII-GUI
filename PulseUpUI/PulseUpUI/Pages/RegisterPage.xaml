@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PulseUpUI.Pages.RegisterPage" BackgroundColor="#297045">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Label Text="Opret bruger" FontSize="35" TextColor="#f0faf4" HorizontalOptions="Center"></Label>
+       
+            </StackLayout>
+
+            <Frame BackgroundColor="Transparent" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Indtast email"   
+                           PlaceholderColor="#f0faf4" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="#f0faf4"/>
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Indtast adgangskode"   
+                           PlaceholderColor="#f0faf4" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="#f0faf4"/>
+                </StackLayout>
+            </Frame>
+            <!--<Button Command="{Binding SubmitCommand}" Text="Login" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#2E933C" Clicked="ButtonLogin_Clicked"/>-->
+            <Button Text="Registrér" TextColor="#f0faf4"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#2E933C" Clicked="ButtonCreate_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
